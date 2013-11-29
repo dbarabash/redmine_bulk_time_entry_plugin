@@ -39,4 +39,8 @@ module BulkTimeEntriesHelper
       []
     end
   end
+
+  def get_issue_desc(issue_id)
+    return "project (#{Issue.find_by_id(issue_id)})";
+  end
 end

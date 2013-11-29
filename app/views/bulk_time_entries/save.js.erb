@@ -3,5 +3,5 @@
 <% end %>
 
 <% @saved_entries.each do |html_id, entry| %>
-  $("#entry_<%= html_id %>").html("<div class='flash notice'> <%= escape_javascript(l(:text_time_added_to_project, :count => entry.hours)) %>. <%= escape_javascript(entry.comments) unless entry.comments.blank? %></div>");
+  $("#entry_<%= html_id %>").html("<div class='flash notice'> <%= escape_javascript(l(:text_time_added_to_project, :count => entry.hours, :target => get_issue_desc(entry.issue_id))) %>. <%= escape_javascript(entry.comments) unless entry.comments.blank? %></div>");
 <% end %>
