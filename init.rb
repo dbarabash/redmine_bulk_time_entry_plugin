@@ -2,7 +2,7 @@ require 'redmine'
 
 config.gem 'fastercsv' if respond_to? :config
 
-Redmine::Plugin.register :bulk_time_entry_plugin do
+Redmine::Plugin.register :redmine_bulk_time_entry_plugin do
   name 'Bulk Time Entry'
   author 'Eric Davis'
   description 'This is a plugin to enter multiple time entries at one time.'

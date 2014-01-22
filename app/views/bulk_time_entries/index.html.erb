@@ -1,6 +1,6 @@
 <h2><%= l(:label_bulk_time_entries) %></h2>
 <% content_for(:header_tags) do %>
-<%= javascript_include_tag 'bulk_time_entry.js', :plugin => 'bulk_time_entry_plugin' %>
+<%= javascript_include_tag 'bulk_time_entry.js', :plugin => 'redmine_bulk_time_entry_plugin' %>
 <% end %>
 
 <%= form_for :bulk_time_entry, url: {:action => 'save'}, :remote => true, html: {:id => 'time_entries' , :class => 'tabular'} do |f| %>

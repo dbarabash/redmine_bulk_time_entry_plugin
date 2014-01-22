@@ -1,7 +1,11 @@
 <% @unsaved_entries.each do |html_id, entry| %>
-  $("#entry_<%= html_id %>").html("<%= escape_javascript(render :partial => 'time_entry', :locals => { @time_entry => entry } ) %>");
+  <% unless entry.id.nil? %>
+    $("#entry_<%= html_id %>").html("<%= escape_javascript(render :partial => 'time_entry', :locals => { @time_entry => entry } ) %>");
+  <% else %>
+    $("#entry_<%= html_id %>").html("<div class='flash error'> <%= escape_javascript(l(:text_time_added_to_project_failed, :count => entry.hours, :target => get_issue_desc(entry.issue_id))) %>. </div>");
+  <% end %>
 <% end %>
 
 <% @saved_entries.each do |html_id, entry| %>
-  $("#entry_<%= html_id %>").html("<div class='flash notice'> <%= escape_javascript(l(:text_time_added_to_project, :count => entry.hours)) %>. <%= escape_javascript(entry.comments) unless entry.comments.blank? %></div>");
+  $("#entry_<%= html_id %>").html("<div class='flash notice'> <%= escape_javascript(l(:text_time_added_to_project, :count => entry.hours, :target => get_issue_desc(entry.issue_id))) %>. <%= escape_javascript(entry.comments) unless entry.comments.blank? %></div>");
 <% end %>
